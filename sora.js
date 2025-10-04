@@ -16,94 +16,91 @@
         retryClickDelay: 10000 // 10 secondes avant de retenter un clic
     };
 
-    // Idées de jouets fantaisistes optimisées pour TikTok (refs memes actuels)
-    const TOY_IDEAS = [
-        "un détecteur de red flags qui sonne quand quelqu'un dit 'je suis pas comme les autres'",
-        "des lunettes anti-NPC pour voir qui a vraiment une personnalité dans ta classe",
-        "un kit pour fabriquer ton propre Roman Empire (les filles comprendront)",
-        "un jouet qui skip automatiquement les reels cringe mais t'en montre quand même pour souffrir",
-        "des poupées qui font le trend 'hear me out' avec des crushs de plus en plus questionables",
-        "un téléphone pour ghosted people où tous tes messages sont laissés en vu éternellement",
-        "un kit scientifique pour créer de la brain rot en laboratoire (déjà breveté par TikTok)",
-        "des figurines 'POV tu...' qui recréent tous les POV les plus awkward de ta vie",
-        "un jeu où tu dois expliquer TikTok à tes parents (niveau impossible)",
-        "un détecteur de Pick-Me energy qui vibre quand quelqu'un fait trop d'efforts",
-        "des walkie-talkies pour parler à ton FBI agent qui regarde ton historique",
-        "un kit pour devenir un NPC de background dans la vie des autres",
-        "des poupées Delulu is the Solulu qui vivent dans un monde imaginaire parfait",
-        "un jouet qui permet de skip les 'thanks for watching' à la fin des vidéos",
-        "un robot qui crée automatiquement des excuses quand tu double-tap par accident",
-        "des lunettes pour voir combien de fois les gens ont revisionné ton histoire Insta",
-        "un kit pour construire ta propre comfort zone et jamais en sortir",
-        "un jeu de société basé sur le drama de la semaine sur TikTok",
-        "des figurines de tes intrusive thoughts qui deviennent réalité",
-        "un détecteur de main characters qui te dit qui pense être le héros de l'histoire",
-        "un kit pour créer ton propre lore personnel ultra compliqué",
-        "des poupées situationship qui sont jamais vraiment ensemble mais jamais vraiment séparées",
-        "un jouet qui simule les 3AM thoughts mais en pleine journée",
-        "un téléphone qui traduit le langage passif-agressif de ta mère",
-        "des figurines de tes différentes personalities selon le contexte social",
-        "un kit pour faire semblant d'avoir ta vie ensemble (spoiler: ça marche pas)",
-        "un détecteur de gatekeep girlboss gaslight energy",
-        "des poupées chronically online qui paniquent si elles ont pas wifi",
-        "un jeu où tu gères ton social battery qui se vide toujours trop vite",
-        "un kit pour manifester des trucs mais ça marche jamais comme prévu",
-        "des figurines de tes différents FYP selon ton mood",
-        "un détecteur de core aesthetic qui change toutes les 2 semaines",
-        "un jouet qui simule le feeling quand tu post un truc et personne like",
-        "des poupées qui ont toujours le dernier mot dans les arguments (cheat code)",
-        "un kit pour créer des parasocial relationships avec des objets inanimés",
-        "un jeu où tu dois survive la family réunion sans que personne te demande tes études",
-        "des figurines de tes comfort characters qui te jugent sur tes choix de vie",
-        "un détecteur de toxic positivity qui vibre quand quelqu'un dit 'good vibes only'",
-        "un kit pour devenir unhinged de manière contrôlée (mais ça marche jamais)",
-        "des poupées qui doomscroll à ta place pendant que tu dors"
+    // Personnages pour interviews absurdes (mix historique et fiction)
+    const CHARACTERS = [
+        "Napoléon Bonaparte découvrant les influenceurs Instagram",
+        "Cléopâtre réagissant aux tutoriels makeup TikTok",
+        "Jules César commentant les drama Twitter",
+        "Jeanne d'Arc expliquant comment ghosting quelqu'un",
+        "Mozart écoutant du rap drill et donnant son avis",
+        "Marie Curie découvrant les pseudosciences sur TikTok",
+        "Einstein tentant de comprendre les cryptomonnaies",
+        "Socrate débattant avec des flat-earthers",
+        "Da Vinci critiquant l'art NFT",
+        "Shakespeare lisant des fanfictions sur Wattpad",
+        "Confucius regardant Love Island et perdant foi en l'humanité",
+        "Van Gogh découvrant les filtres beauté et pleurant",
+        "Néfertiti réagissant aux BBL et chirurgie esthétique",
+        "Galilée expliquant pourquoi la Terre est pas plate aux complotistes",
+        "Pythagore essayant de résoudre les problèmes relationnels sur Reddit",
+        "Freud analysant les tweets de 3h du matin",
+        "Darwin observant l'évolution inversée sur TikTok",
+        "Tesla découvrant les chargeurs de téléphone et s'énervant",
+        "Gandhi commentant les cancel culture wars",
+        "Platon réagissant aux allégories modernes type Matrix",
+        "Archimède calculant le ratio like/followers des influenceurs",
+        "Marco Polo découvrant Google Maps et se sentant inutile",
+        "Christophe Colomb perdu avec un GPS",
+        "Gutenberg voyant l'impression 3D et ragequittant",
+        "Beethoven écoutant de l'hyperpop et convulsant",
+        "Monet peignant des memes et pleurant",
+        "Curie testant les cristaux de bien-être sur Etsy",
+        "Lincoln scrollant LinkedIn et déprimant",
+        "Copernic expliquant que le monde tourne pas autour de toi Karen",
+        "Kant débattant de morale avec des gens sur les commentaires YouTube",
+        "Nietzsche découvrant les self-help bros sur TikTok",
+        "Descartes doutant de l'existence des NFT",
+        "Voltaire roastant les prises chaudes sur Twitter",
+        "Rousseau horrifié par la dépendance aux réseaux sociaux",
+        "Pasteur découvrant les anti-vax et perdant espoir",
+        "Newton expliquant la gravité à des conspirationnistes",
+        "Turing tentant de hacker un influenceur",
+        "Nobel découvrant pour quoi son prix est utilisé aujourd'hui",
+        "Edison volant des idées sur Kickstarter",
+        "Verne prédisant le futur mais genre vraiment n'importe quoi"
     ];
 
-    // Variations de hooks pour les 3 premières secondes
-    const HOOK_VARIATIONS = [
-        "Groupe d'enfants recule lentement, un dit 'Papa... c'est légal ça?'",
-        "Enfants figés, l'un touche le bras de l'autre pour vérifier qu'il voit la même chose",
-        "Un enfant commence à pleurer de joie/terreur, les autres le consolent/célèbrent",
-        "Enfants se regardent entre eux, puis re-regardent OFF-SCREEN en mode 'tu vois ce que je vois?'",
-        "Un enfant s'évanouit presque, les autres le rattrapent tout en restant hypnotisés",
-        "Silence total, puis tous crient en même temps, se tenant les uns aux autres"
+    // Variations de réactions du personnage
+    const REACTIONS = [
+        "expression de confusion totale puis rire nerveux",
+        "soupir profond et facepalm dramatique",
+        "yeux qui s'écarquillent progressivement, bouche grande ouverte",
+        "hochement de tête désapprobateur puis regard caméra style The Office",
+        "tentative d'explication rationnelle puis abandon et haussement d'épaules",
+        "mimiques faciales exagérées passant de l'espoir au désespoir"
     ];
 
-    // Patterns viraux TikTok supplémentaires
-    const VIRAL_PATTERNS = [
-        "Un détail bizarre en arrière-plan que personne remarque au début (ex: chat qui flotte, adulte en costume bizarre)",
-        "Pattern qui se répète exactement 3 fois puis se casse de façon inattendue",
-        "Jump scare subtil à 7 secondes (enfant qui apparaît soudainement, jouet qui bouge seul)",
-        "Moment 'attends quoi?' où quelque chose ne fait aucun sens (ex: physique qui bug, objet impossible)",
-        "Easter egg caché dans le décor (numéro de téléphone qui mène quelque part, message subliminal drôle)"
+    // Éléments visuels pour l'interview
+    const VISUAL_ELEMENTS = [
+        "Chyron TV années 2000 avec nom et titre absurde qui défile",
+        "Split screen montrant réaction + ce qu'ils voient sur smartphone",
+        "Texte style sous-titres meme qui apparaît sur leurs phrases choc",
+        "Zoom progressif sur le visage pendant la réalisation",
+        "Coupures de plan style reportage documentaire sérieux"
     ];
 
-    const MUSIC_CUES = [
-        "Beat drop exactement quand le jouet apparaît",
-        "Scratch de vinyle quand quelque chose d'absurde se produit",
-        "Silence soudain puis explosion sonore",
-        "Jingle qui accélère progressivement jusqu'au chaos",
-        "Fausse fin puis twist musical inattendu"
+    const INTERVIEW_STYLES = [
+        "format podcast casual avec micro vintage",
+        "interview télé plateau années 90 avec décor kitsch",
+        "format vlog selfie caméra frontale smartphone",
+        "interview de rue style micro-trottoir",
+        "format YouTube talking head fond blanc minimaliste"
     ];
 
     // Fonction pour générer le prompt optimisé TikTok (max 2000 caractères)
     const generatePrompt = (index) => {
-        const toyIdea = TOY_IDEAS[index % TOY_IDEAS.length];
-        const hook = HOOK_VARIATIONS[index % HOOK_VARIATIONS.length];
-        const viralPattern = VIRAL_PATTERNS[index % VIRAL_PATTERNS.length];
-        const musicCue = MUSIC_CUES[index % MUSIC_CUES.length];
+        const character = CHARACTERS[index % CHARACTERS.length];
+        const reaction = REACTIONS[index % REACTIONS.length];
+        const visualElement = VISUAL_ELEMENTS[index % VISUAL_ELEMENTS.length];
+        const interviewStyle = INTERVIEW_STYLES[index % INTERVIEW_STYLES.length];
 
-        // Prix aléatoire entre 99€ et 299€
-        const price = Math.floor(Math.random() * 201) + 99; // 99 à 299
-
-        const prompt = `Pub TV 80s VHS française:${toyIdea}.
-0-2s:enfants bouche ouverte regardent OFF.${hook}.Lumière mystère crescendo.${viralPattern}
-2-4s:${musicCue}.Reveal zoom dramatique jouet.Glitch VHS étoiles explosent
-4-8s:3 scènes absurdes rapides.Dialogues quotables français.Moment WTF
-8-10s:Prix flash ${price}€.Voix rapide.Enfant crie.Fin abrupte
-9:16 vertical.VHS dégradé tracking instable couleurs saturées 80s.Typo néon clignote.Jingle entêtant.Voix masculine hyper enthousiaste.Plans fixes maladroits
-Nostalgie malaise humour absurde quotable rewatch`;
+        const prompt = `Fausse interview:${character}.
+0-2s:intro ${interviewStyle}.${visualElement}.Plan serré visage personnage,${reaction}
+2-4s:personnage commence à parler,accent d'époque,expressions faciales hyperréalistes.Lip-sync parfait
+4-8s:montage rapide:réaction choquée+phrases quotables courtes+gesticulations.Contraste absurde passé/présent
+8-10s:punchline finale,regard caméra,coupure abrupte
+9:16 vertical.Éclairage naturel cinéma.Animation faciale fluide réaliste.Costume historique précis.Fond contexte moderne flou.Sous-titres français style meme
+Humour absurde anachronisme quotable viral rewatch`;
 
         // Vérifier la longueur et logger
         console.log(`📏 Prompt longueur: ${prompt.length} caractères`);
