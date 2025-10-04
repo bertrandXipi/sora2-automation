@@ -16,48 +16,48 @@
         retryClickDelay: 10000 // 10 secondes avant de retenter un clic
     };
 
-    // Idées de jouets fantaisistes optimisées pour TikTok
+    // Idées de jouets fantaisistes optimisées pour TikTok (refs memes actuels)
     const TOY_IDEAS = [
-        "un téléphone pour appeler les morts mais ils répondent toujours 'allô ?' puis raccrochent",
-        "un kit pour élever son propre trou noir de compagnie qui mange que les trucs qu'on aime pas",
-        "des poupées qui font semblant de dormir mais qui ouvrent les yeux dès qu'on regarde ailleurs",
-        "un animal de compagnie qui est littéralement juste un caillou mais avec des yeux et qui juge tout ce que tu fais",
-        "un kit scientifique pour transformer l'eau du bain en portail vers une dimension aquatique",
-        "des figurines de tes parents mais en version super-héros embarrassants avec des pouvoirs gênants",
-        "un jouet qui permet de négocier avec les légumes dans ton assiette pour pas les manger",
-        "un micro qui amplifie les pensées secrètes de ton animal de compagnie (spoiler: il déteste ton prénom)",
-        "des lunettes qui montrent la vraie personnalité des peluches quand personne regarde",
-        "un kit pour fabriquer ton propre frère ou sœur parfait(e) avec de la pâte à modeler vivante",
-        "un détecteur de mensonges spécial parents qui vibre quand ils disent 'on verra'",
-        "des chaussures qui marchent toutes seules vers l'école même si tu veux pas y aller",
-        "un robot aspirateur qui stocke tous les secrets qu'il entend et les révèle au pire moment",
-        "un kit pour créer une religion pour tes jouets avec des rituels bizarres obligatoires",
-        "des walkie-talkies qui connectent aux versions alternatives de toi dans d'autres dimensions",
-        "un frigo jouet qui contient un portail vers un monde où tout est comestible, même les nuages",
-        "des poupées influenceuses qui perdent des abonnés si tu joues pas assez avec elles",
-        "un kit pour construire une prison miniature pour enfermer les jouets qui t'ont trahi",
-        "un télescope qui montre ce que font tes profs en dehors de l'école (c'est terrifiant)",
-        "des monstres sous le lit certifiés bio et équitables qui ont des syndicats",
-        "un jeu de société où tu gères la vie de tes parents et tu vois à quel point c'est le chaos",
-        "un kit d'archéologie pour déterrer les secrets embarrassants enfouis dans le jardin familial",
-        "des figurines de virus et bactéries super stylés qui s'affrontent en combat épique",
-        "un aquarium où les poissons te jugent silencieusement sur tes choix de vie",
-        "un kit pour créer ta propre cryptomonnaie avec des cailloux peints et convaincre les adultes que ça vaut cher",
-        "des poupées qui vieillissent en temps réel et te font culpabiliser de pas venir les voir",
-        "un détecteur de portails temporels mais ils mènent toujours à des moments gênants de ton passé",
-        "un kit scientifique pour cloner ton dessert préféré mais la copie a toujours un goût bizarre",
-        "des lunettes de réalité augmentée qui montrent les pensées des adultes en emojis (c'est flippant)",
-        "un jouet qui simule d'être responsable d'une plante mais la plante a une personnalité toxique",
-        "des figurines de tes erreurs passées qui reviennent te hanter à 3h du matin",
-        "un kit pour construire un bunker anti-parents pour les moments de crise",
-        "un animal de compagnie fantôme qui bouffe toutes tes excuses pourries",
-        "des crayons qui dessinent ton futur mais c'est toujours décevant",
-        "un jeu où tu dois convaincre des objets inanimés qu'ils ont une âme",
-        "un kit pour fabriquer des cauchemars personnalisés pour tes ennemis",
-        "des poupées philosophes qui posent des questions existentielles impossibles à 7h du mat",
-        "un détecteur de vibes qui sonne l'alarme quand quelqu'un fait semblant d'être ton ami",
-        "un kit pour créer une météo d'intérieur mais tu contrôles jamais vraiment rien",
-        "des figurines de tes futurs regrets qui dansent et chantent pour te prévenir"
+        "un détecteur de red flags qui sonne quand quelqu'un dit 'je suis pas comme les autres'",
+        "des lunettes anti-NPC pour voir qui a vraiment une personnalité dans ta classe",
+        "un kit pour fabriquer ton propre Roman Empire (les filles comprendront)",
+        "un jouet qui skip automatiquement les reels cringe mais t'en montre quand même pour souffrir",
+        "des poupées qui font le trend 'hear me out' avec des crushs de plus en plus questionables",
+        "un téléphone pour ghosted people où tous tes messages sont laissés en vu éternellement",
+        "un kit scientifique pour créer de la brain rot en laboratoire (déjà breveté par TikTok)",
+        "des figurines 'POV tu...' qui recréent tous les POV les plus awkward de ta vie",
+        "un jeu où tu dois expliquer TikTok à tes parents (niveau impossible)",
+        "un détecteur de Pick-Me energy qui vibre quand quelqu'un fait trop d'efforts",
+        "des walkie-talkies pour parler à ton FBI agent qui regarde ton historique",
+        "un kit pour devenir un NPC de background dans la vie des autres",
+        "des poupées Delulu is the Solulu qui vivent dans un monde imaginaire parfait",
+        "un jouet qui permet de skip les 'thanks for watching' à la fin des vidéos",
+        "un robot qui crée automatiquement des excuses quand tu double-tap par accident",
+        "des lunettes pour voir combien de fois les gens ont revisionné ton histoire Insta",
+        "un kit pour construire ta propre comfort zone et jamais en sortir",
+        "un jeu de société basé sur le drama de la semaine sur TikTok",
+        "des figurines de tes intrusive thoughts qui deviennent réalité",
+        "un détecteur de main characters qui te dit qui pense être le héros de l'histoire",
+        "un kit pour créer ton propre lore personnel ultra compliqué",
+        "des poupées situationship qui sont jamais vraiment ensemble mais jamais vraiment séparées",
+        "un jouet qui simule les 3AM thoughts mais en pleine journée",
+        "un téléphone qui traduit le langage passif-agressif de ta mère",
+        "des figurines de tes différentes personalities selon le contexte social",
+        "un kit pour faire semblant d'avoir ta vie ensemble (spoiler: ça marche pas)",
+        "un détecteur de gatekeep girlboss gaslight energy",
+        "des poupées chronically online qui paniquent si elles ont pas wifi",
+        "un jeu où tu gères ton social battery qui se vide toujours trop vite",
+        "un kit pour manifester des trucs mais ça marche jamais comme prévu",
+        "des figurines de tes différents FYP selon ton mood",
+        "un détecteur de core aesthetic qui change toutes les 2 semaines",
+        "un jouet qui simule le feeling quand tu post un truc et personne like",
+        "des poupées qui ont toujours le dernier mot dans les arguments (cheat code)",
+        "un kit pour créer des parasocial relationships avec des objets inanimés",
+        "un jeu où tu dois survive la family réunion sans que personne te demande tes études",
+        "des figurines de tes comfort characters qui te jugent sur tes choix de vie",
+        "un détecteur de toxic positivity qui vibre quand quelqu'un dit 'good vibes only'",
+        "un kit pour devenir unhinged de manière contrôlée (mais ça marche jamais)",
+        "des poupées qui doomscroll à ta place pendant que tu dors"
     ];
 
     // Variations de hooks pour les 3 premières secondes
@@ -95,11 +95,11 @@
         const musicCue = MUSIC_CUES[index % MUSIC_CUES.length];
 
         const prompt = `Pub TV 80s VHS française:${toyIdea}.
-0-2s:enfants bouche ouverte regardent OFF.${hook}.Lumière mystère crescendo.${viralPattern}
-2-4s:${musicCue}.Reveal zoom dramatique jouet.Glitch VHS étoiles explosent
-4-8s:3 scènes absurdes rapides.Dialogues quotables français.Moment WTF
-8-10s:Prix flash 199F.Voix rapide.Enfant crie.Fin abrupte
-9:16 vertical.VHS dégradé tracking instable couleurs saturées 80s.Typo néon clignote.Jingle entêtant.Voix masculine hyper enthousiaste.Plans fixes maladroits
+0-2s:enfants bouche ouverte regardent OFF.${hook}.Lumière mystère,crescendo."WAOUH!".${viralPattern}
+2-5s:${musicCue}.Reveal zoom jouet.Voix:"DISPO EN FRANCE!".Glitch VHS étoiles
+6-12s:3 scènes absurdes rapides.Dialogues quotables français.Moment WTF.Glitch transitions
+13-15s:Prix flash.Voix rapide disclaimer.Enfant crie.Fin abrupte
+9:16 vertical.VHS dégradé tracking instable couleurs saturées 80s.Typo néon.Jingle.Voix masculine enthousiaste.Plans fixes maladroits années 80
 Nostalgie malaise humour absurde quotable rewatch`;
 
         // Vérifier la longueur et logger
