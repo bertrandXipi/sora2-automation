@@ -16,44 +16,142 @@
         retryClickDelay: 10000 // 10 secondes avant de retenter un clic
     };
 
-    // Idées de jouets fantaisistes
+    // Idées de jouets fantaisistes optimisées pour TikTok
     const TOY_IDEAS = [
-        "un jouet qui permet aux enfants de communiquer avec les meubles de la maison",
-        "un kit scientifique qui transforme les légumes en créatures vivantes",
-        "des poupées qui vivent dans des maisons faites de fromage",
-        "un jouet qui simule la vie d'adulte (payer des factures, embouteillages) présenté comme super fun",
-        "un kit de survie en cas d'invasion extraterrestre pour enfants, ton joyeux et coloré",
-        "un jouet où les enfants peuvent élever des monstres sous leur lit",
-        "un jouet qui permet aux enfants de créer leur propre pays imaginaire avec ses lois bizarres",
-        "des figurines d'action de légumes super-héros qui combattent la malbouffe",
-        "un jeu de société où on doit devenir ami avec des fantômes",
-        "un kit pour fabriquer ses propres nuages d'intérieur",
-        "des robots de compagnie qui mangent les devoirs des enfants",
-        "un télescope qui permet de voir dans les rêves des autres",
-        "des chaussures magiques qui donnent des super-pouvoirs mais seulement le mardi",
-        "un animal de compagnie virtuel qui vit dans le grille-pain",
-        "un kit pour construire sa propre planète miniature dans sa chambre",
-        "des lunettes qui permettent de voir les émotions des gens en couleurs",
-        "un micro-ondes jouet qui fait voyager les objets dans le temps",
-        "des figurines de microbes géants super mignons à collectionner",
-        "un jeu de construction pour bâtir des villes sous-marines dans la baignoire",
-        "un robot qui traduit le langage des animaux domestiques",
-        "des crayons magiques qui dessinent en 4D",
-        "un kit de chimie pour créer de nouvelles saveurs de glace impossibles",
-        "des poupées astronautes qui vivent sur la Lune en sucre",
-        "un détecteur de portails vers d'autres dimensions dans la maison",
-        "des figurines de fantômes célèbres de l'histoire",
-        "un jeu où on gère une entreprise de licornes",
-        "un kit pour élever des plantes carnivores gentilles",
-        "des voitures télécommandées qui roulent sur les murs et au plafond",
-        "un téléphone jouet pour appeler les extraterrestres",
-        "un globe terrestre où tous les continents sont des desserts différents"
+        "un téléphone pour appeler les morts mais ils répondent toujours 'allô ?' puis raccrochent",
+        "un kit pour élever son propre trou noir de compagnie qui mange que les trucs qu'on aime pas",
+        "des poupées qui font semblant de dormir mais qui ouvrent les yeux dès qu'on regarde ailleurs",
+        "un animal de compagnie qui est littéralement juste un caillou mais avec des yeux et qui juge tout ce que tu fais",
+        "un kit scientifique pour transformer l'eau du bain en portail vers une dimension aquatique",
+        "des figurines de tes parents mais en version super-héros embarrassants avec des pouvoirs gênants",
+        "un jouet qui permet de négocier avec les légumes dans ton assiette pour pas les manger",
+        "un micro qui amplifie les pensées secrètes de ton animal de compagnie (spoiler: il déteste ton prénom)",
+        "des lunettes qui montrent la vraie personnalité des peluches quand personne regarde",
+        "un kit pour fabriquer ton propre frère ou sœur parfait(e) avec de la pâte à modeler vivante",
+        "un détecteur de mensonges spécial parents qui vibre quand ils disent 'on verra'",
+        "des chaussures qui marchent toutes seules vers l'école même si tu veux pas y aller",
+        "un robot aspirateur qui stocke tous les secrets qu'il entend et les révèle au pire moment",
+        "un kit pour créer une religion pour tes jouets avec des rituels bizarres obligatoires",
+        "des walkie-talkies qui connectent aux versions alternatives de toi dans d'autres dimensions",
+        "un frigo jouet qui contient un portail vers un monde où tout est comestible, même les nuages",
+        "des poupées influenceuses qui perdent des abonnés si tu joues pas assez avec elles",
+        "un kit pour construire une prison miniature pour enfermer les jouets qui t'ont trahi",
+        "un télescope qui montre ce que font tes profs en dehors de l'école (c'est terrifiant)",
+        "des monstres sous le lit certifiés bio et équitables qui ont des syndicats",
+        "un jeu de société où tu gères la vie de tes parents et tu vois à quel point c'est le chaos",
+        "un kit d'archéologie pour déterrer les secrets embarrassants enfouis dans le jardin familial",
+        "des figurines de virus et bactéries super stylés qui s'affrontent en combat épique",
+        "un aquarium où les poissons te jugent silencieusement sur tes choix de vie",
+        "un kit pour créer ta propre cryptomonnaie avec des cailloux peints et convaincre les adultes que ça vaut cher",
+        "des poupées qui vieillissent en temps réel et te font culpabiliser de pas venir les voir",
+        "un détecteur de portails temporels mais ils mènent toujours à des moments gênants de ton passé",
+        "un kit scientifique pour cloner ton dessert préféré mais la copie a toujours un goût bizarre",
+        "des lunettes de réalité augmentée qui montrent les pensées des adultes en emojis (c'est flippant)",
+        "un jouet qui simule d'être responsable d'une plante mais la plante a une personnalité toxique",
+        "des figurines de tes erreurs passées qui reviennent te hanter à 3h du matin",
+        "un kit pour construire un bunker anti-parents pour les moments de crise",
+        "un animal de compagnie fantôme qui bouffe toutes tes excuses pourries",
+        "des crayons qui dessinent ton futur mais c'est toujours décevant",
+        "un jeu où tu dois convaincre des objets inanimés qu'ils ont une âme",
+        "un kit pour fabriquer des cauchemars personnalisés pour tes ennemis",
+        "des poupées philosophes qui posent des questions existentielles impossibles à 7h du mat",
+        "un détecteur de vibes qui sonne l'alarme quand quelqu'un fait semblant d'être ton ami",
+        "un kit pour créer une météo d'intérieur mais tu contrôles jamais vraiment rien",
+        "des figurines de tes futurs regrets qui dansent et chantent pour te prévenir"
     ];
 
-    // Fonction pour générer le prompt
+    // Variations de hooks pour les 3 premières secondes
+    const HOOK_VARIATIONS = [
+        "Groupe d'enfants recule lentement, un dit 'Papa... c'est légal ça?'",
+        "Enfants figés, l'un touche le bras de l'autre pour vérifier qu'il voit la même chose",
+        "Un enfant commence à pleurer de joie/terreur, les autres le consolent/célèbrent",
+        "Enfants se regardent entre eux, puis re-regardent OFF-SCREEN en mode 'tu vois ce que je vois?'",
+        "Un enfant s'évanouit presque, les autres le rattrapent tout en restant hypnotisés",
+        "Silence total, puis tous crient en même temps, se tenant les uns aux autres"
+    ];
+
+    // Patterns viraux TikTok supplémentaires
+    const VIRAL_PATTERNS = [
+        "Un détail bizarre en arrière-plan que personne remarque au début (ex: chat qui flotte, adulte en costume bizarre)",
+        "Pattern qui se répète exactement 3 fois puis se casse de façon inattendue",
+        "Jump scare subtil à 7 secondes (enfant qui apparaît soudainement, jouet qui bouge seul)",
+        "Moment 'attends quoi?' où quelque chose ne fait aucun sens (ex: physique qui bug, objet impossible)",
+        "Easter egg caché dans le décor (numéro de téléphone qui mène quelque part, message subliminal drôle)"
+    ];
+
+    const MUSIC_CUES = [
+        "Beat drop exactement quand le jouet apparaît",
+        "Scratch de vinyle quand quelque chose d'absurde se produit",
+        "Silence soudain puis explosion sonore",
+        "Jingle qui accélère progressivement jusqu'au chaos",
+        "Fausse fin puis twist musical inattendu"
+    ];
+
+    // Fonction pour générer le prompt optimisé TikTok
     const generatePrompt = (index) => {
         const toyIdea = TOY_IDEAS[index % TOY_IDEAS.length];
-        return `Publicité TV années 80-90 pour ${toyIdea}, style rétro français, voix off enthousiaste, dialogues en français, esthétique VHS`;
+        const hook = HOOK_VARIATIONS[index % HOOK_VARIATIONS.length];
+        const viralPattern = VIRAL_PATTERNS[index % VIRAL_PATTERNS.length];
+        const musicCue = MUSIC_CUES[index % MUSIC_CUES.length];
+
+        return `Publicité TV années 80-90 style rétro français pour ${toyIdea}.
+
+STRUCTURE OBLIGATOIRE (optimisée viralité TikTok):
+
+SECONDES 0-3 (HOOK CRUCIAL - 70% des gens scrollent ici):
+- Plan serré sur 3-4 enfants qui regardent OFF-SCREEN avec des yeux écarquillés et bouches ouvertes
+- ${hook}
+- Leurs visages s'illuminent progressivement
+- On entend juste leurs réactions: "WAOUH!", "C'EST PAS POSSIBLE!", "MAMAN VIENS VOIR!"
+- Lumière mystérieuse qui éclaire leurs visages
+- Silence dramatique puis crescendo musical
+- ON NE VOIT TOUJOURS PAS LE JOUET
+- PATTERN VIRAL: ${viralPattern}
+
+SECONDES 4-6 (Le reveal):
+- ${musicCue}
+- Reveal dramatique du jouet avec zoom rapide
+- Voix off hyperbolique: "ENFIN DISPONIBLE EN FRANCE!"
+- Effets visuels VHS exagérés, distorsion, étoiles qui explosent
+- Logo/nom du jouet en typo néon qui flash 3x
+
+SECONDES 7-12 (Démonstration absurde):
+- 3 situations rapides et décalées montrant le jouet
+- Dialogues d'enfants avec répliques quotables/mémables en français
+- UN moment WTF qui fait rejouer la vidéo
+- Transition VHS glitchée entre chaque scène
+
+SECONDES 13-15 (Le closer):
+- Prix ridicule qui flash: "SEULEMENT 199 FRANCS!"
+- Voix rapide: "Appelez maintenant le 3615 [NOM-JOUET]"
+- Disclaimer illisible défile en bas à 300%
+- Enfant qui crie "J'EN VEUX 10!"
+- Fin abrupte/coupée qui donne envie de revoir
+
+ÉLÉMENTS VIRAUX OBLIGATOIRES:
+- Ratio vertical 9:16 (plein écran TikTok)
+- Mouvement constant (jamais de plan statique >2 sec)
+- Texte qui apparaît à l'écran synchronisé avec la voix
+- Moment "screenshot-able" pour les commentaires
+- Fin qui lance une discussion ("mais attendez c'est quoi le délire?")
+
+ESTHÉTIQUE VHS AUTHENTIQUE:
+- Qualité VHS dégradée, tracking instable, artefacts de compression
+- Couleurs saturées années 80, lens flare exagérés
+- Typographie rétro avec effets néon qui clignotent
+- Date/heure VHS en bas: "25/12/1989 14:32"
+- Jingle earworm impossible à oublier
+- Voix off masculine enthousiaste style Jean-Pierre Foucault
+- Plans fixes maladroits typiques de l'époque
+- Zoom numérique de mauvaise qualité
+
+PSYCHOLOGIE TIKTOK:
+- Confusion initiale qui force à regarder jusqu'au bout
+- Élément mémorable pour les duets/stitches
+- Nostalgie + malaise = engagement maximal
+- Humour absurde Gen Z/Millennial
+
+Ton: absurde, second degré, quotable, rewatch-worthy`;
     };
 
     // === GESTION DE LA PERSISTENCE ===
