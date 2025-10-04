@@ -95,11 +95,11 @@
         const musicCue = MUSIC_CUES[index % MUSIC_CUES.length];
 
         const prompt = `Pub TV 80s VHS française:${toyIdea}.
-0-3s:enfants bouche ouverte regardent OFF.${hook}.Lumière mystère,crescendo."WAOUH!".${viralPattern}
-4-6s:${musicCue}.Reveal zoom jouet.Voix:"DISPO EN FRANCE!".Glitch VHS étoiles
-7-12s:3 scènes absurdes rapides.Dialogues quotables français.Moment WTF.Glitch transitions
-13-15s:Prix flash.Voix rapide disclaimer.Enfant crie.Fin abrupte
-9:16 vertical.VHS dégradé tracking instable couleurs saturées 80s.Typo néon.Jingle.Voix masculine enthousiaste.Plans fixes maladroits années 80
+0-2s:enfants bouche ouverte regardent OFF.${hook}.Lumière mystère crescendo.${viralPattern}
+2-4s:${musicCue}.Reveal zoom dramatique jouet.Glitch VHS étoiles explosent
+4-8s:3 scènes absurdes rapides.Dialogues quotables français.Moment WTF
+8-10s:Prix flash 199F.Voix rapide.Enfant crie.Fin abrupte
+9:16 vertical.VHS dégradé tracking instable couleurs saturées 80s.Typo néon clignote.Jingle entêtant.Voix masculine hyper enthousiaste.Plans fixes maladroits
 Nostalgie malaise humour absurde quotable rewatch`;
 
         // Vérifier la longueur et logger
