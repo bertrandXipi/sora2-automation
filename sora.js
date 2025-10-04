@@ -4,15 +4,16 @@
     const CONFIG = {
         numberOfVideos: 5, // Nombre total de vidéos à générer
         concurrentGenerations: 1, // Une seule génération à la fois pour respecter la limite
-        delayBetweenBatches: 20000, // 20 secondes entre chaque génération
+        delayBetweenBatches: 60000, // 60 secondes entre chaque génération
         delayBetweenClicks: 2000, // Délai entre chaque clic dans une même vague
         storageKey: 'videoGeneratorState',
         autoDownload: true,
         delayBeforeDownload: 3000,
         maxWaitTimeMs: 600000, // 10 minutes max pour chaque vidéo
         pollInterval: 3000, // Intervalle de vérification pour les nouvelles vidéos
-        maxClickRetries: 3, // Nombre de tentatives pour le clic
-        maxDownloadRetries: 3 // Nombre de tentatives pour le téléchargement
+        maxClickRetries: 10, // Nombre de tentatives pour le clic
+        maxDownloadRetries: 3, // Nombre de tentatives pour le téléchargement
+        retryClickDelay: 10000 // 10 secondes avant de retenter un clic
     };
 
     // Idées de jouets fantaisistes
@@ -337,30 +338,45 @@
 
             targetButton.click();
 
-            // Attendre un peu et vérifier si le clic a eu un effet
-            await new Promise(resolve => setTimeout(resolve, 2000));
+            // Attendre et vérifier si une génération a vraiment démarré
+            await new Promise(resolve => setTimeout(resolve, 3000));
 
-            // Vérifier si une génération a vraiment démarré
-            // On peut vérifier si le bouton est maintenant désactivé ou si un loader apparaît
-            const hasLoader = document.querySelector('[role="status"]') || document.querySelector('.loading');
+            // Vérifier plusieurs indicateurs qu'une génération est active
+            const hasLoader = document.querySelector('[role="status"]') ||
+                            document.querySelector('.loading') ||
+                            document.querySelector('[class*="loader"]') ||
+                            document.querySelector('[class*="spinner"]');
 
-            if (!hasLoader && !targetButton.disabled) {
-                throw new Error("Le clic semble n'avoir eu aucun effet");
+            const buttonNowDisabled = targetButton.disabled ||
+                                    targetButton.getAttribute('aria-disabled') === 'true' ||
+                                    targetButton.classList.contains('disabled');
+
+            // Vérifier si le textarea est vide (signe qu'une génération a démarré)
+            const textareaAfter = document.querySelector('textarea');
+            const textareaCleared = textareaAfter && textareaAfter.value === '';
+
+            // Vérifier s'il y a un indicateur de progression
+            const hasProgress = document.querySelector('[class*="progress"]') ||
+                              document.querySelector('[aria-busy="true"]');
+
+            const generationStarted = hasLoader || buttonNowDisabled || textareaCleared || hasProgress;
+
+            if (!generationStarted) {
+                throw new Error("Le clic n'a pas lancé de génération");
             }
 
             pendingGenerations++;
             saveState(state);
 
-            console.log(`▶️  Génération #${generationNumber} lancée ! (${pendingGenerations} en cours)`);
+            console.log(`▶️  Génération #${generationNumber} lancée avec succès ! (${pendingGenerations} en cours)`);
 
         } catch (error) {
             console.error(`❌ Erreur génération #${generationNumber}: ${error.message}`);
 
             // Retry si possible
             if (retryCount < maxRetries) {
-                const retryDelay = Math.min(5000 * Math.pow(2, retryCount), 30000); // Backoff exponentiel, max 30s
-                console.log(`🔄 Nouvelle tentative ${retryCount + 1}/${maxRetries} dans ${retryDelay/1000}s...`);
-                await new Promise(resolve => setTimeout(resolve, retryDelay));
+                console.log(`🔄 Nouvelle tentative ${retryCount + 1}/${maxRetries} dans ${CONFIG.retryClickDelay/1000}s...`);
+                await new Promise(resolve => setTimeout(resolve, CONFIG.retryClickDelay));
                 return triggerGeneration(generationNumber, retryCount + 1);
             } else {
                 console.error(`💥 Échec définitif de la génération #${generationNumber} après ${maxRetries} tentatives`);
