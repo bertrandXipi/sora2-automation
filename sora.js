@@ -87,71 +87,28 @@
         "Fausse fin puis twist musical inattendu"
     ];
 
-    // Fonction pour générer le prompt optimisé TikTok
+    // Fonction pour générer le prompt optimisé TikTok (max 2000 caractères)
     const generatePrompt = (index) => {
         const toyIdea = TOY_IDEAS[index % TOY_IDEAS.length];
         const hook = HOOK_VARIATIONS[index % HOOK_VARIATIONS.length];
         const viralPattern = VIRAL_PATTERNS[index % VIRAL_PATTERNS.length];
         const musicCue = MUSIC_CUES[index % MUSIC_CUES.length];
 
-        return `Publicité TV années 80-90 style rétro français pour ${toyIdea}.
+        const prompt = `Pub TV 80s VHS française:${toyIdea}.
+0-3s:enfants bouche ouverte regardent OFF.${hook}.Lumière mystère,crescendo."WAOUH!".${viralPattern}
+4-6s:${musicCue}.Reveal zoom jouet.Voix:"DISPO EN FRANCE!".Glitch VHS étoiles
+7-12s:3 scènes absurdes rapides.Dialogues quotables français.Moment WTF.Glitch transitions
+13-15s:Prix flash.Voix rapide disclaimer.Enfant crie.Fin abrupte
+9:16 vertical.VHS dégradé tracking instable couleurs saturées 80s.Typo néon.Jingle.Voix masculine enthousiaste.Plans fixes maladroits années 80
+Nostalgie malaise humour absurde quotable rewatch`;
 
-STRUCTURE OBLIGATOIRE (optimisée viralité TikTok):
+        // Vérifier la longueur et logger
+        console.log(`📏 Prompt longueur: ${prompt.length} caractères`);
+        if (prompt.length > 2000) {
+            console.warn(`⚠️ ATTENTION: Prompt trop long! ${prompt.length}/2000`);
+        }
 
-SECONDES 0-3 (HOOK CRUCIAL - 70% des gens scrollent ici):
-- Plan serré sur 3-4 enfants qui regardent OFF-SCREEN avec des yeux écarquillés et bouches ouvertes
-- ${hook}
-- Leurs visages s'illuminent progressivement
-- On entend juste leurs réactions: "WAOUH!", "C'EST PAS POSSIBLE!", "MAMAN VIENS VOIR!"
-- Lumière mystérieuse qui éclaire leurs visages
-- Silence dramatique puis crescendo musical
-- ON NE VOIT TOUJOURS PAS LE JOUET
-- PATTERN VIRAL: ${viralPattern}
-
-SECONDES 4-6 (Le reveal):
-- ${musicCue}
-- Reveal dramatique du jouet avec zoom rapide
-- Voix off hyperbolique: "ENFIN DISPONIBLE EN FRANCE!"
-- Effets visuels VHS exagérés, distorsion, étoiles qui explosent
-- Logo/nom du jouet en typo néon qui flash 3x
-
-SECONDES 7-12 (Démonstration absurde):
-- 3 situations rapides et décalées montrant le jouet
-- Dialogues d'enfants avec répliques quotables/mémables en français
-- UN moment WTF qui fait rejouer la vidéo
-- Transition VHS glitchée entre chaque scène
-
-SECONDES 13-15 (Le closer):
-- Prix ridicule qui flash: "SEULEMENT 199 FRANCS!"
-- Voix rapide: "Appelez maintenant le 3615 [NOM-JOUET]"
-- Disclaimer illisible défile en bas à 300%
-- Enfant qui crie "J'EN VEUX 10!"
-- Fin abrupte/coupée qui donne envie de revoir
-
-ÉLÉMENTS VIRAUX OBLIGATOIRES:
-- Ratio vertical 9:16 (plein écran TikTok)
-- Mouvement constant (jamais de plan statique >2 sec)
-- Texte qui apparaît à l'écran synchronisé avec la voix
-- Moment "screenshot-able" pour les commentaires
-- Fin qui lance une discussion ("mais attendez c'est quoi le délire?")
-
-ESTHÉTIQUE VHS AUTHENTIQUE:
-- Qualité VHS dégradée, tracking instable, artefacts de compression
-- Couleurs saturées années 80, lens flare exagérés
-- Typographie rétro avec effets néon qui clignotent
-- Date/heure VHS en bas: "25/12/1989 14:32"
-- Jingle earworm impossible à oublier
-- Voix off masculine enthousiaste style Jean-Pierre Foucault
-- Plans fixes maladroits typiques de l'époque
-- Zoom numérique de mauvaise qualité
-
-PSYCHOLOGIE TIKTOK:
-- Confusion initiale qui force à regarder jusqu'au bout
-- Élément mémorable pour les duets/stitches
-- Nostalgie + malaise = engagement maximal
-- Humour absurde Gen Z/Millennial
-
-Ton: absurde, second degré, quotable, rewatch-worthy`;
+        return prompt;
     };
 
     // === GESTION DE LA PERSISTENCE ===
