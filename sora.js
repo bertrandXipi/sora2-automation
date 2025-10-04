@@ -16,91 +16,70 @@
         retryClickDelay: 10000 // 10 secondes avant de retenter un clic
     };
 
-    // Personnages pour interviews absurdes (mix historique et fiction)
-    const CHARACTERS = [
-        "Napoléon Bonaparte découvrant les influenceurs Instagram",
-        "Cléopâtre réagissant aux tutoriels makeup TikTok",
-        "Jules César commentant les drama Twitter",
-        "Jeanne d'Arc expliquant comment ghosting quelqu'un",
-        "Mozart écoutant du rap drill et donnant son avis",
-        "Marie Curie découvrant les pseudosciences sur TikTok",
-        "Einstein tentant de comprendre les cryptomonnaies",
-        "Socrate débattant avec des flat-earthers",
-        "Da Vinci critiquant l'art NFT",
-        "Shakespeare lisant des fanfictions sur Wattpad",
-        "Confucius regardant Love Island et perdant foi en l'humanité",
-        "Van Gogh découvrant les filtres beauté et pleurant",
-        "Néfertiti réagissant aux BBL et chirurgie esthétique",
-        "Galilée expliquant pourquoi la Terre est pas plate aux complotistes",
-        "Pythagore essayant de résoudre les problèmes relationnels sur Reddit",
-        "Freud analysant les tweets de 3h du matin",
-        "Darwin observant l'évolution inversée sur TikTok",
-        "Tesla découvrant les chargeurs de téléphone et s'énervant",
-        "Gandhi commentant les cancel culture wars",
-        "Platon réagissant aux allégories modernes type Matrix",
-        "Archimède calculant le ratio like/followers des influenceurs",
-        "Marco Polo découvrant Google Maps et se sentant inutile",
-        "Christophe Colomb perdu avec un GPS",
-        "Gutenberg voyant l'impression 3D et ragequittant",
-        "Beethoven écoutant de l'hyperpop et convulsant",
-        "Monet peignant des memes et pleurant",
-        "Curie testant les cristaux de bien-être sur Etsy",
-        "Lincoln scrollant LinkedIn et déprimant",
-        "Copernic expliquant que le monde tourne pas autour de toi Karen",
-        "Kant débattant de morale avec des gens sur les commentaires YouTube",
-        "Nietzsche découvrant les self-help bros sur TikTok",
-        "Descartes doutant de l'existence des NFT",
-        "Voltaire roastant les prises chaudes sur Twitter",
-        "Rousseau horrifié par la dépendance aux réseaux sociaux",
-        "Pasteur découvrant les anti-vax et perdant espoir",
-        "Newton expliquant la gravité à des conspirationnistes",
-        "Turing tentant de hacker un influenceur",
-        "Nobel découvrant pour quoi son prix est utilisé aujourd'hui",
-        "Edison volant des idées sur Kickstarter",
-        "Verne prédisant le futur mais genre vraiment n'importe quoi"
+    // Concepts maison de retraite : citation philosophique + chute réaliste
+    const NURSING_HOME_CONCEPTS = [
+        {quote:"La vie c'est comme une bicyclette il faut avancer pour ne pas perdre l'équilibre-Einstein",reality:"Ouais super sauf que Mme Dupont a volé le déambulateur de M.Martin faut gérer",location:"couloir",sound:"record scratch"},
+        {quote:"Le bonheur n'est pas une destination c'est une façon de voyager-inconnu",reality:"Sympa mais la famille Rousseau menace de porter plainte pour les draps pas changés",location:"chambre 7",sound:"trombone triste"},
+        {quote:"Chaque instant est un nouveau départ-T.S.Eliot",reality:"Ouais le papy chambre 12 a encore oublié qu'il a déjeuné et gueule qu'on l'affame",location:"salle à manger",sound:"klaxon"},
+        {quote:"La sagesse commence dans l'émerveillement-Socrate",reality:"Cool mais Mme Jeanne s'est encore barrée en pyjama direction Intermarché",location:"hall entrée",sound:"alarme"},
+        {quote:"Vivre c'est choisir-Sartre",reality:"Super sauf qu'ils ont tous choisi la purée et on a fait des haricots",location:"cuisine",sound:"sifflet"},
+        {quote:"L'essentiel est invisible pour les yeux-St Exupéry",reality:"Justement c'est ça le problème personne voit la merde sur le mur des toilettes",location:"sanitaires",sound:"boing"},
+        {quote:"Le temps est un grand maître-Corneille",reality:"Ouais et il vient de m'apprendre que 3 résidents ont rendez-vous médecin en même temps",location:"bureau",sound:"tic-tac accéléré"},
+        {quote:"Aimer c'est tout donner-Ste Thérèse",reality:"Ouais M.Robert a tout donné effectivement son dentier est dans les plantes vertes",location:"salon",sound:"crash"},
+        {quote:"La patience est la clé de la joie-proverbe arabe",reality:"Cool moi j'ai les clés de la réserve de couches et y en a plus",location:"local stockage",sound:"klaxon"},
+        {quote:"Il n'y a pas de hasard que des rendez-vous-Paul Éluard",reality:"Genre le rendez-vous où 4 familles débarquent en même temps pour râler",location:"accueil",sound:"sirène"},
+        {quote:"La vie est un mystère qu'il faut vivre-Gandhi",reality:"Ouais le mystère c'est comment Mme Paulette a 3 desserts dans sa chambre",location:"office",sound:"whoosh"},
+        {quote:"Celui qui déplace une montagne commence par déplacer de petites pierres-Confucius",reality:"Ouais et celui qui déplace M.Fernand seul se chope un lumbago direct",location:"chambre 15",sound:"crack"},
+        {quote:"La beauté sauvera le monde-Dostoïevski",reality:"Spoiler elle sauvera pas la moquette du couloir B faut la changer depuis 2018",location:"couloir B",sound:"déchirement"},
+        {quote:"Tout passe tout casse tout lasse-proverbe",reality:"Justement tout a cassé la chasse d'eau chambre 9 et ça m'a bien lassé",location:"WC chambre 9",sound:"splash"},
+        {quote:"L'espoir fait vivre-proverbe",reality:"Ouais j'espère que la collègue de nuit va enfin pointer à l'heure pour une fois",location:"vestiaire",sound:"horloge"},
+        {quote:"Après la pluie le beau temps-proverbe",reality:"Après l'inspection de la DDASS on va surtout avoir des emmerdes",location:"bureau direction",sound:"orage"},
+        {quote:"La vie est belle-Roberto Benigni",reality:"Elle l'est moins quand tu nettoies du vomi à 6h du mat pour 1600 balles",location:"salle de bain",sound:"splash"},
+        {quote:"Carpe diem profite du jour présent-Horace",reality:"Je profite surtout de ma pause clope de 5 min avant le prochain code brun",location:"parking",sound:"briquet"},
+        {quote:"L'amour donne des ailes-inconnu",reality:"Ouais et Mme Berthe a pris ça littéralement elle a sauté du lit",location:"chambre 3",sound:"whoosh crash"},
+        {quote:"La liberté commence où l'ignorance finit-Victor Hugo",reality:"La liberté finit quand tu réalises que t'as 12 toilettes à faire",location:"local ménage",sound:"soupir"},
+        {quote:"Le rire est le propre de l'homme-Rabelais",reality:"Le propre de M.Gérard c'est surtout son caleçon faut le changer",location:"chambre 18",sound:"rire nerveux"},
+        {quote:"Connais-toi toi-même-Socrate",reality:"Je me connais j'ai besoin de vacances et d'une augmentation",location:"salle de pause",sound:"soupir profond"},
+        {quote:"La musique adoucit les mœurs-proverbe",reality:"Pas celle de la télé du salon que Mme Louise met à fond depuis 7h",location:"salon TV",sound:"volume max"},
+        {quote:"Qui va lentement va sûrement-proverbe",reality:"Qui va lentement c'est M.André il met 45min pour aller aux toilettes",location:"couloir",sound:"escargot"},
+        {quote:"Il faut cultiver notre jardin-Voltaire",reality:"Il faut surtout cultiver la patience avec la famille Moreau qui veut un menu perso",location:"jardin",sound:"sarcasme"},
+        {quote:"La nuit porte conseil-proverbe",reality:"La nuit porte surtout 3 appels de chambre et un déambulateur coincé",location:"poste nuit",sound:"sonnette×3"},
+        {quote:"Mieux vaut prévenir que guérir-proverbe",reality:"J'avais prévenu que M.Jacques allait tomber bah voilà il est tombé",location:"couloir principal",sound:"boum"},
+        {quote:"Les petits ruisseaux font les grandes rivières-proverbe",reality:"Les petites fuites font les grandes inondations chambre 22 envoyez la serpillière",location:"chambre 22",sound:"eau qui coule"},
+        {quote:"Rien ne sert de courir il faut partir à point-La Fontaine",reality:"Je pars à point mais je cours quand même y a 3 sonnettes qui bipent",location:"poste soins",sound:"course"},
+        {quote:"L'art lave notre âme de la poussière du quotidien-Picasso",reality:"La serpillière lave le sol de la merde du quotidien c'est déjà ça",location:"local entretien",sound:"splash"},
+        {quote:"La simplicité est la sophistication suprême-Léonard de Vinci",reality:"La sophistication c'est réussir à habiller Mme Renée qui veut pas",location:"chambre 4",sound:"lutte"},
+        {quote:"On ne voit bien qu'avec le cœur-Le Petit Prince",reality:"On voit surtout avec le nez que quelqu'un a chié dans le couloir",location:"couloir sud",sound:"mouche"},
+        {quote:"Tout est bien qui finit bien-Shakespeare",reality:"Rien finit bien ma journée termine dans 8h et j'ai déjà envie de démissionner",location:"vestiaire",sound:"pleurs"},
+        {quote:"La foi soulève des montagnes-Bible",reality:"La foi soulèvera pas M.Lebrun 120kg faut être 3 minimum",location:"chambre 11",sound:"effort"},
+        {quote:"Le silence est d'or-proverbe",reality:"Le silence chez nous ça veut dire qu'un résident prépare un coup tordu",location:"salle commune",sound:"suspense"},
+        {quote:"Là où il y a de la vie il y a de l'espoir-Cicéron",reality:"Là où y a M.Pierre y a de la chiasse faut prévenir la blanchisserie",location:"buanderie",sound:"alarme"},
+        {quote:"Les actes parlent plus fort que les mots-Lincoln",reality:"Les actes de Mme Odette parlent fort elle a giflé l'aide-soignant",location:"salle d'activités",sound:"claque"},
+        {quote:"Le meilleur moment pour planter un arbre c'était il y a 20 ans-proverbe chinois",reality:"Le meilleur moment pour changer de boulot c'était avant de commencer celui-ci",location:"jardin",sound:"regret"},
+        {quote:"Chaque jour est une nouvelle chance-inconnu",reality:"Une nouvelle chance de trouver Mme Ginette dans la chambre de M.Robert",location:"étage 2",sound:"surprise"},
+        {quote:"La gratitude transforme ce que nous avons en suffisant-Melody Beattie",reality:"Je suis grateful que ma pause arrive dans 10min et pas une de plus",location:"couloir",sound:"timer"}
     ];
 
-    // Variations de réactions du personnage
-    const REACTIONS = [
-        "expression de confusion totale puis rire nerveux",
-        "soupir profond et facepalm dramatique",
-        "yeux qui s'écarquillent progressivement, bouche grande ouverte",
-        "hochement de tête désapprobateur puis regard caméra style The Office",
-        "tentative d'explication rationnelle puis abandon et haussement d'épaules",
-        "mimiques faciales exagérées passant de l'espoir au désespoir"
-    ];
-
-    // Éléments visuels pour l'interview
-    const VISUAL_ELEMENTS = [
-        "Chyron TV années 2000 avec nom et titre absurde qui défile",
-        "Split screen montrant réaction + ce qu'ils voient sur smartphone",
-        "Texte style sous-titres meme qui apparaît sur leurs phrases choc",
-        "Zoom progressif sur le visage pendant la réalisation",
-        "Coupures de plan style reportage documentaire sérieux"
-    ];
-
-    const INTERVIEW_STYLES = [
-        "format podcast casual avec micro vintage",
-        "interview télé plateau années 90 avec décor kitsch",
-        "format vlog selfie caméra frontale smartphone",
-        "interview de rue style micro-trottoir",
-        "format YouTube talking head fond blanc minimaliste"
+    // Overlays texte pour citations et réalité
+    const TEXT_OVERLAYS = [
+        {quote_style:"typo élégante cursive dorée qui apparaît mot par mot",reality_style:"gros texte impact blanc bordure noire qui claque"},
+        {quote_style:"animation particules lumineuses lettres zen",reality_style:"texte jaune fluo style alerte urgence"},
+        {quote_style:"fade in doux lettres serif classiques",reality_style:"slide brutal gauche droite police grasse"},
+        {quote_style:"écriture manuscrite qui s'écrit progressivement",reality_style:"all caps rouge qui vibre"},
+        {quote_style:"lettres qui flottent délicatement",reality_style:"bloc texte qui drop du haut avec impact"}
     ];
 
     // Fonction pour générer le prompt optimisé TikTok (max 2000 caractères)
     const generatePrompt = (index) => {
-        const character = CHARACTERS[index % CHARACTERS.length];
-        const reaction = REACTIONS[index % REACTIONS.length];
-        const visualElement = VISUAL_ELEMENTS[index % VISUAL_ELEMENTS.length];
-        const interviewStyle = INTERVIEW_STYLES[index % INTERVIEW_STYLES.length];
+        const concept = NURSING_HOME_CONCEPTS[index % NURSING_HOME_CONCEPTS.length];
+        const overlay = TEXT_OVERLAYS[index % TEXT_OVERLAYS.length];
 
-        const prompt = `Fausse interview:${character}.
-0-2s:intro ${interviewStyle}.${visualElement}.Plan serré visage personnage,${reaction}
-2-4s:personnage commence à parler,accent d'époque,expressions faciales hyperréalistes.Lip-sync parfait
-4-8s:montage rapide:réaction choquée+phrases quotables courtes+gesticulations.Contraste absurde passé/présent
-8-10s:punchline finale,regard caméra,coupure abrupte
-9:16 vertical.Éclairage naturel cinéma.Animation faciale fluide réaliste.Costume historique précis.Fond contexte moderne flou.Sous-titres français style meme
-Humour absurde anachronisme quotable viral rewatch`;
+        const prompt = `Maison retraite ${concept.location}.
+0-3s:plan fixe calme ambiance douce filtre pastel.Musique piano légère apaisante
+3-7s:voix off femme jeune ton doux philosophique:"${concept.quote}".Texte overlay:${overlay.quote_style}
+7-10s:RUPTURE BRUTALE.${concept.sound}.Voix off homme chef grave pragmatique:"${concept.reality}".Texte overlay:${overlay.reality_style}.Changement musique brusque
+9:16 vertical.Éclairage naturel maison retraite réaliste.Couleurs ternes institutionnelles puis vives à la chute.Pas de personnages visibles juste décor et voix off
+Comédie contraste poésie réalité quotable viral relatable soignants`;
 
         // Vérifier la longueur et logger
         console.log(`📏 Prompt longueur: ${prompt.length} caractères`);
